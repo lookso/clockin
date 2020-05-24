@@ -1,3 +1,0 @@
-pymongo==3.7.2
-tornado==5.1
-pytest-tornado==0.8.0
