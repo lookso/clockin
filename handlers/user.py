@@ -57,11 +57,11 @@ class UserInfoHandler(tornado.web.RequestHandler):
         if name is None:
             self.finish(json.dumps(
                 APiResult(HttpCode.REQUEST_PARAM_ERROR, ErrMsg.REQUEST_PARAM_ERROR, {}).__dict__))
-
+            return
         if not pwd:
             self.finish(json.dumps(
                 APiResult(HttpCode.REQUEST_PARAM_ERROR, ErrMsg.REQUEST_PARAM_ERROR, {}).__dict__))
-
+            return
         self.set_status(200)
         human = {"name": "jack", "age": 11, "sex": 1}
         for k, v in human.items():
