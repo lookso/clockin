@@ -6,9 +6,11 @@ RUN apk add --no-cache openssl
 
 WORKDIR ./app
 
-COPY . .
+COPY requirement.txt .
 
 RUN pip install -r requirement.txt -i https://mirrors.aliyun.com/pypi/simple/
+
+COPY . .
 
 EXPOSE 9090
 
