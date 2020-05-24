@@ -51,8 +51,8 @@ class UserInfoHandler(tornado.web.RequestHandler):
 
     def get(self):
 
-        name = self.get_argument("name")
-        pwd = self.get_argument("pwd")
+        name = self.get_argument("name", '')
+        pwd = self.get_argument("pwd", '')
 
         if name is None:
             self.finish(json.dumps(
@@ -78,7 +78,7 @@ class UserInfoHandler(tornado.web.RequestHandler):
         if bd.get('name') and bd.get('nums'):
             bd["max"] = maxNum(10, 20)
             bd['fbnq'] = fbnq(maxNum(1, 5))
-            bd['decorator'] = now()
+            bd['decorator'] = now() + "-{}".format(bd["max"])
 
         '''是否可迭代'''
         bd['iterable'] = isinstance(bd, Iterable)
